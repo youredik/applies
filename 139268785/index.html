@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Builder — MEDODS</title>
+<meta name="description" content="Как опыт вайбкодинга помогает проекту MEDODS в маркетинге, SEO и автоматизации гипотез на продуктовой аналитике.">
+<style>
+  :root{--sea:#0b3d5c;--sea2:#14688f;--sun:#ffb347;--sand:#f6efe3;--ink:#12202b;--muted:#5b7284}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--sand)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  header{position:relative;overflow:hidden;color:#fff;background:linear-gradient(180deg,#07283d 0%,var(--sea) 38%,var(--sea2) 72%,#2f8fb0 100%)}
+  header:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:90px;
+    background:radial-gradient(140px 70px at 16% 100%,rgba(255,179,71,.55),transparent 70%),
+               radial-gradient(180px 80px at 84% 100%,rgba(255,179,71,.35),transparent 70%)}
+  .hero{position:relative;padding:60px 0 92px;z-index:2}
+  .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:12px;opacity:.75}
+  h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:14px 0 16px;font-weight:750}
+  .lead{font-size:clamp(17px,2.2vw,20px);max-width:46ch;opacity:.95}
+  .card{background:#fff;border-radius:18px;padding:26px;box-shadow:0 18px 44px rgba(11,61,92,.14);margin:-50px 0 24px;position:relative;z-index:3}
+  h2{font-size:clamp(20px,3vw,26px);margin:30px 0 10px}
+  p{margin:0 0 12px} .muted{color:var(--muted)}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:16px 0 8px}
+  .tile{background:#fff;border-radius:14px;padding:18px;box-shadow:0 8px 24px rgba(11,61,92,.08)}
+  .tile b{display:block;margin-bottom:6px}
+  ul{margin:8px 0 8px 20px;padding:0} li{margin:4px 0}
+  .proof{background:var(--sea);color:#fff;border-radius:16px;padding:22px;margin:22px 0}
+  .proof a{color:#ffd9a0}
+  footer{padding:30px 0 60px;color:var(--muted);font-size:14px}
+  .sig{font-weight:650;color:var(--ink)}
+</style>
+</head>
+<body>
+<header><div class="wrap hero">
+  <div class="kicker">Сочи · удалённо · время московское</div>
+  <h1>Город, где всё строится быстро.<br>Так же я строю продукты.</h1>
+  <p class="lead">Вайбкодинг — способ доводить гипотезу до цифры за дни: собрать, включить замер, решить по данным.
+  Ниже — что из этого применимо к проекту MEDODS.</p>
+</div></header>
+
+<main class="wrap">
+  <section class="card">
+    <h2>Что я увидел в вашей задаче</h2>
+    <p>Задача — не «сделать сайт и красиво», а пройти цикл: гипотеза → сборка → инструментирование → замер → решение. Для MEDODS это значит: Гипотеза проверяется числом; Автоматизация без хрупких мест; MCP-сервер на 64 инструмента в проде.</p>
+  </section>
+
+  <h2>Что уже собрано и работает</h2>
+  <p class="muted">Агент пишет код, я формулирую задачу, проверяю и отвечаю за результат.</p>
+  <div class="grid">
+    <div class="tile"><b>Гипотеза проверяется числом</b>Событие ставится до запуска, замер включается вместе с гипотезой, решение фиксируется: оставляем, переделываем или закрываем.</div>
+    <div class="tile"><b>Автоматизация без хрупких мест</b>Outbox, идемпотентность, повтор при ошибке, ограничение частоты — интеграции не теряют данные при сбое.</div>
+    <div class="tile"><b>MCP-сервер на 64 инструмента в проде</b>Права как у человека: ограничение доступа, блокировка неизвестных инструментов, подтверждение записи человеком.</div>
+  </div>
+
+  <h2>Как это выглядит в работе</h2>
+  <ul>
+    <li>Гипотеза формулируется одной строкой и сразу становится задачей.</li>
+    <li>Сборка варианта — часы, не недели: страница, форма, событие, дашборд.</li>
+    <li>Замер включается до запуска: иначе через неделю «данных нет».</li>
+    <li>Решение фиксируется числом: оставляем, переделываем или закрываем.</li>
+  </ul>
+  <p>Практический вывод: больше гипотез за тот же месяц, мёртвые идеи отсекаются на второй день, а не на восьмой.</p>
+
+  <section class="proof">
+    <h2 style="margin-top:0;color:#fff">Что можно открыть прямо сейчас</h2>
+    <p style="margin-bottom:8px">Живой сервис с моделями, гейтами и стоимостью на токенах:<br>
+      <a href="https://d5di947mrfv71qo6acud.fovt0b64.apigw.yandexcloud.net/" target="_blank" rel="noopener">демо GamePulse</a></p>
+    <p style="margin-bottom:0">Код и разборы: <a href="https://github.com/youredik" target="_blank" rel="noopener">github.com/youredik</a></p>
+  </section>
+
+  <h2>Что будет в первую неделю</h2>
+  <p>Разбор продуктовой аналитики: где теряются заявки и какие события вообще не поставляются. Затем три гипотезы, у каждой замер до запуска. Дальше цикл: сборка, две недели данных, решение.</p>
+
+  <footer>
+    <p class="sig">Эдуард · Сочи · время московское</p>
+    <p>Телеграм <a href="https://t.me/sochi_privet">@sochi_privet</a></p>
+  </footer>
+</main>
+</body>
+</html>
