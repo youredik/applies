@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Эд из Сочи · маркетинг, который проверяется числом</title>
+<meta name="description" content="Вайбкодинг как способ проходить цикл гипотеза → сборка → замер → решение за дни. Маркетинг, SEO и продуктовые гипотезы.">
+<style>
+  :root{
+    --ink:#20222e; --muted:#5d6273; --paper:#fbf8f1; --card:#ffffff;
+    --orange:#f2a05a; --pink:#c25a7a; --indigo:#241f45; --green:#1fa06a; --green-dark:#17845a;
+    --sun:#ffd9a0; --line:#e8e2d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font:17px/1.65 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* закат над морем */
+  .hero{position:relative;overflow:hidden;color:#fff;background:var(--paper);min-height:94vh;display:flex;flex-direction:column;justify-content:flex-end}
+  .hero .sky{position:absolute;left:0;right:0;top:0;bottom:50%;background:linear-gradient(180deg,#f7bd80 0%,#efa468 30%,#d97a6c 58%,#a95a7c 82%,#7a4a75 100%)}
+  .hero .horizon{position:absolute;left:0;right:0;bottom:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,217,160,.85),transparent);z-index:2}
+  .hero .sun{position:absolute;left:77%;top:30%;width:26vmin;height:26vmin;margin-left:-13vmin;opacity:.9;border-radius:50%;
+    background:radial-gradient(circle,#fff3cf 0%,#ffe0a8 45%,rgba(255,205,140,.25) 68%,transparent 70%);filter:blur(2px)}
+  .hero .sea{position:absolute;left:0;right:0;bottom:0;height:50%;overflow:hidden;
+    background:linear-gradient(180deg,#3a2f5c 0%,#241f45 40%,#161532 100%)}
+  .hero .glit{position:absolute;left:0;right:0;bottom:44%;height:12vh;opacity:.35;
+    background:repeating-linear-gradient(180deg,rgba(255,224,168,.20) 0 2px,transparent 2px 12px);
+    mask-image:radial-gradient(60% 100% at 50% 100%,#000 20%,transparent 80%)}
+  .hero .inner{position:relative;z-index:4;padding:0 0 7vh;text-align:center}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;
+    background:rgba(28,26,58,.58);border:1px solid rgba(255,217,160,.38);color:#fff;font-size:13px;letter-spacing:.02em}
+  .badge i{width:8px;height:8px;border-radius:50%;background:#8fe3b4;display:inline-block}
+  h1{font-size:clamp(32px,5.4vw,58px);line-height:1.06;letter-spacing:-.028em;font-weight:800;margin:24px 0 0;text-wrap:balance}
+  h1 span{display:block;color:#ffd9a0}
+  .hero p{max-width:50ch;margin:20px auto 0;color:#e6e0f2;font-size:clamp(16px,1.9vw,19px)}
+  .sign{margin-top:22px;font-size:14px;color:#c9c2de;letter-spacing:.06em;font-family:ui-serif,Georgia,serif;font-style:italic}
+
+  /* письмо от Эда */
+  .note{background:var(--card);border-radius:22px;box-shadow:0 24px 60px rgba(32,34,46,.10);
+    padding:32px 34px;margin:-68px auto 0;position:relative;z-index:5;max-width:760px;border:1px solid var(--line)}
+  .who{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .ava{width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,#f2a05a,#c25a7a 60%,#241f45);
+    display:grid;place-items:center;color:#fff;font-weight:700}
+  .who b{display:block;font-size:15px}
+  .who span{color:var(--muted);font-size:13px}
+  .note p{color:#33364a}
+  .note .sig{margin-top:14px;text-align:right;color:#a8446a;font-style:italic;font-family:ui-serif,Georgia,serif}
+
+  /* три опоры */
+  section{padding:74px 0}
+  .eyebrow{color:#0f6b49;letter-spacing:.2em;text-transform:uppercase;font-size:12px;margin-bottom:12px;font-family:ui-serif,Georgia,serif}
+  h2{font-size:clamp(24px,3.6vw,38px);line-height:1.1;letter-spacing:-.015em;max-width:24ch}
+  .lead{color:var(--muted);max-width:58ch;margin-top:14px}
+  .pillars{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:34px}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 22px;
+    box-shadow:0 10px 30px rgba(32,34,46,.05);transition:transform .35s ease, box-shadow .35s ease}
+  .pillar:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(32,34,46,.10)}
+  .pillar .num{font-size:12px;letter-spacing:.18em;color:#6f6a5e}
+  .pillar h3{font-size:20px;margin:8px 0 8px}
+  .pillar p{color:var(--muted);font-size:15.5px}
+
+  /* цикл */
+  .loop{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;margin-top:26px;display:grid;gap:26px;grid-template-columns:1.05fr .95fr;align-items:center}
+  @media(max-width:800px){.loop{grid-template-columns:1fr}}
+  .steps{list-style:none;display:grid;gap:12px;margin-top:16px}
+  .steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+  .steps em{font-style:normal;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:#f1f7f2;color:var(--green-dark);font-weight:700;font-size:14px}
+  .ringwrap{display:grid;place-items:center}
+  .ring svg{width:min(300px,80%);height:auto}
+  .ring .dash{stroke-dasharray:5 9}
+  @media(max-width:800px){.ringwrap{display:none}}
+
+  /* факты */
+  .facts{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:32px}
+  .facts > p{grid-column:1/-1}
+  .fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+  .fact b{display:block;margin-bottom:6px}
+  .fact span{color:var(--muted);font-size:15px}
+
+  /* финал */
+  .cta{background:linear-gradient(180deg,#241f45,#161532);color:#fff;text-align:center;padding:78px 0}
+  .cta h2{margin:0 auto;max-width:26ch;color:#fff}
+  .cta p{color:#cfc7e0;margin-top:16px}
+  .btn{display:inline-block;margin-top:26px;padding:15px 30px;border-radius:999px;background:#0f6b49;
+    color:#fff;text-decoration:none;font-weight:700;box-shadow:0 12px 30px rgba(31,160,106,.35)}
+  .btn:hover{background:#0d5f41}
+  .foot{padding:26px 0 54px;text-align:center;color:#a5a2b4;font-size:14px;background:#161532}
+  .foot a{display:inline-block;padding:6px 8px}
+  a:focus-visible,.btn:focus-visible{outline:2px solid #146c49;outline-offset:3px;border-radius:8px}
+  .cta a:focus-visible,.foot a:focus-visible{outline-color:#ffd9a0}
+  .foot a{color:#a9d8bd}
+
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.ring .dash{animation:none}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="sky"></div>
+  <div class="sun"></div>
+  <div class="horizon"></div>
+  <div class="glit"></div>
+  <div class="inner wrap">
+    <div class="badge"><i></i>Сочи · время московское</div>
+    <h1>Гипотезы — потоком,<span>а не пачками по пятницам.</span></h1>
+    <p>Меня зовут Эд. 11 лет в разработке, последние полтора года работаю через ИИ-агентов. Для Site.pro это про рекламу, SEO и авто-гипотезы на продуктовой аналитике — с числом в конце каждой проверки.</p>
+    <div class="sign">Эд · Сочи · время московское</div>
+  </div>
+  <div class="sea"></div>
+</header>
+
+<main class="wrap">
+  <section class="note reveal" style="padding:32px 34px;margin-top:-68px">
+    <div class="who"><div class="ava">Э</div><div><b>Привет, я Эд</b><span>делаю продукты с помощью агентов — из Сочи</span></div></div>
+    <p>Полтора года пишу код через агентов: формулирую задачу, разбираю план, проверяю результат и отвечаю за него. Между «придумали» и «знаем, работает или нет» проходит день-два, а не месяц.</p>
+    <p>Прочитал вакансию. Ниже — по трём вашим задачам. И честно, где я не подойду.</p>
+    <div class="sig">— Эд</div>
+  </section>
+
+  <section>
+    <div class="reveal">
+      <div class="eyebrow">три опоры</div>
+      <h2>Реклама, SEO и гипотезы — на одном языке</h2>
+      <p class="lead">Каждая задача заканчивается числом: что проверили, на какой метрике и что решили.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><div class="num">01</div><h3>Реклама</h3>
+        <p>Варианты объявлений и посадочных собираю агентом, событие вешаю до запуска. Заявка видна по источнику, а не «в среднем по кабинету».</p></div>
+      <div class="pillar reveal"><div class="num">02</div><h3>SEO</h3>
+        <p>Schema.org, sitemap, IndexNow, скорость. Статьи пишу вместе с агентом, факты проверяю по источникам — для этого есть поиск с проверкой цитат.</p></div>
+      <div class="pillar reveal"><div class="num">03</div><h3>Авто-гипотезы</h3>
+        <p>Из продуктовой аналитики видно, где люди отваливаются. Дальше — что проверить, на какой метрике и на каком объёме данных.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="loop reveal">
+      <div>
+        <div class="eyebrow">цикл</div>
+        <h2>Четыре шага, которые нельзя пропустить</h2>
+        <ul class="steps">
+          <li><em>1</em><div><b>Гипотеза</b><div style="color:#5d6273;font-size:15px">Одна строка: что проверяем и какой результат считаем успехом.</div></div></li>
+          <li><em>2</em><div><b>Сборка</b><div style="color:#5d6273;font-size:15px">Страница, форма, событие, дашборд — часами, не неделями.</div></div></li>
+          <li><em>3</em><div><b>Замер</b><div style="color:#5d6273;font-size:15px">Включается до запуска: потом «данных нет» не принимается.</div></div></li>
+          <li><em>4</em><div><b>Решение</b><div style="color:#5d6273;font-size:15px">Оставляем, переделываем или закрываем — с числом на руках.</div></div></li>
+        </ul>
+      </div>
+      <div class="ringwrap"><div class="ring">
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <circle cx="150" cy="150" r="110" fill="none" stroke="#efe9dc" stroke-width="2"/>
+          <circle class="dash" cx="150" cy="150" r="110" fill="none" stroke="#1fa06a" stroke-width="2.5"/>
+          <circle cx="150" cy="54" r="7" fill="#f2a05a"/>
+          <circle cx="246" cy="150" r="7" fill="#1fa06a"/>
+          <circle cx="150" cy="246" r="7" fill="#c25a7a"/>
+          <circle cx="54" cy="150" r="7" fill="#241f45"/>
+          <text x="150" y="34" text-anchor="middle" font-size="10" letter-spacing="1.4" fill="#5d6273">ГИПОТЕЗА</text>
+          <text x="290" y="150" text-anchor="end" font-size="10" letter-spacing="1.4" fill="#5d6273">СБОРКА</text>
+          <text x="150" y="278" text-anchor="middle" font-size="10" letter-spacing="1.4" fill="#5d6273">ЗАМЕР</text>
+          <text x="10" y="150" text-anchor="start" font-size="10" letter-spacing="1.4" fill="#5d6273">РЕШЕНИЕ</text>
+        </svg>
+      </div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="reveal">
+      <div class="eyebrow">в проде</div>
+      <h2>Что уже работает</h2>
+      <p class="lead">Ссылки живые: демо и код открываются.</p>
+    </div>
+    <div class="facts">
+      <div class="fact reveal"><b>64 инструмента, права урезаны</b><span>MCP-сервер в коммерческом коде: агент не может больше сотрудника — ограничение прав и подтверждение записи.</span></div>
+      <div class="fact reveal"><b>Цитата или ничего</b><span>RAG с гибридным поиском: ответ без подтверждения по источнику не отдаётся.</span></div>
+      <div class="fact reveal"><b>Замер, а не ощущение</b><span>Набор кейсов, интервалы Вильсона, реестр ложных срабатываний, стенд сравнения моделей.</span></div>
+      <div class="fact reveal"><b>2 500 наименований</b><span>Свёл через pg_trgm — ручная сверка превратилась в список спорных пар.</span></div>
+      <p style="margin-top:22px;color:#5d6273">Демо на FastAPI: <a href="https://d5di947mrfv71qo6acud.fovt0b64.apigw.yandexcloud.net/" style="color:#17845a">открыть</a> · код: <a href="https://github.com/youredik" style="color:#17845a">github.com/youredik</a></p>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="reveal" style="background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px 30px">
+      <div class="eyebrow">честно</div>
+      <h2 style="font-size:clamp(22px,3vw,30px)">Где я не подойду</h2>
+      <ul style="margin-top:16px;padding-left:20px;color:#4a4e5e">
+        <li style="margin-bottom:8px"><b>Руками почти не пишу.</b> Если нужен человек, который каждый день пишет код без ИИ — это не ко мне.</li>
+        <li style="margin-bottom:8px"><b>Больших рекламных бюджетов не крутил:</b> небольшой коммерческий сайт и внутренние продукты.</li>
+        <li><b>В Site.pro я новый.</b> Первые недели — читать код и данные, а не «сразу в бой».</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Давайте начнём с одной гипотезы</h2>
+    <p>15 минут, без презентаций: покажу, как это работает, и послушаю, где у вас болит.</p>
+    <a class="btn" href="https://t.me/sochi_privet">Написать в телеграм</a>
+  </div>
+</section>
+
+<footer class="foot">Эд · Сочи · время московское · телеграм <a href="https://t.me/sochi_privet">@sochi_privet</a> · код: github.com/youredik</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  const io=new IntersectionObserver(list=>{list.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
