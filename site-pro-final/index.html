@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#241f45">
+<title>Эд · реклама, SEO и гипотезы с ИИ-агентами</title>
+<meta name="description" content="11 лет в разработке, полтора года — с ИИ-агентами. Реклама, SEO, статьи и гипотезы на продуктовой аналитике. Сочи, время московское.">
+<style>
+  :root{--blue:#2196F3;--sky:#61B9FF;--carrot:#F26518;--sunset:#F68C14;--peach:#FDE7CE;--leaf:#489335;
+        --ink:#000;--text:#595959;--line:#E5E5E5;--soft:#F1F1F1;--shadow:0 0 24px rgba(89,89,89,.10)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Jost,Arial,Helvetica,sans-serif;font-size:18px;line-height:1.55;color:var(--text);background:#fff}
+  @media(max-width:1200px){body{font-size:16px}}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 30px}
+  .grain{display:none}
+  /* hero: их плоская геометрия, без градиентов */
+  .hero{position:relative;overflow:hidden;background:var(--peach)}
+  .hero .sky,.hero .sea,.hero .sun,.hero .horizon,.hero .glit{display:none}
+  .hero .inner{position:relative;z-index:2;padding:96px 0 120px;text-align:center;max-width:900px;margin:0 auto}
+  .hero:before{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;background:var(--sky)}
+  .hero:after{content:"";position:absolute;right:8%;top:8%;width:240px;height:240px;border-radius:50%;
+    background:var(--sunset);box-shadow:0 0 0 42px rgba(242,101,24,.18)}
+  .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 16px;border-radius:999px;background:#fff;
+    border:1px solid var(--line);color:var(--text);font-size:14px;font-weight:500}
+  .badge i{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
+  h1{font-size:72px;line-height:1.15;font-weight:400;letter-spacing:0;color:var(--ink);margin:22px 0 0;text-wrap:balance}
+  @media(max-width:1200px){h1{font-size:48px}}
+  @media(max-width:767px){h1{font-size:32px}}
+  h1 span{display:block;color:var(--carrot)}
+  .hero p{font-size:24px;line-height:1.25;max-width:60ch;margin:20px auto 0}
+  @media(max-width:767px){.hero p{font-size:18px}}
+  .hero p b{color:var(--ink);font-weight:500}
+  .sign{margin-top:22px;font-size:16px;font-style:italic;color:var(--text)}
+  /* карточка-письмо */
+  .note{position:relative;z-index:3;max-width:760px;margin:-56px auto 0;background:#fff;border:1px solid var(--line);
+    border-radius:4px;padding:32px;box-shadow:var(--shadow)}
+  .who{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .ava{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font-weight:500;
+    line-height:44px;text-align:center;font-size:18px}
+  .who b{display:block;color:var(--ink);font-weight:500}
+  .who span{font-size:14px;color:var(--text)}
+  .note p{margin-bottom:12px}
+  .note .sig{text-align:right;font-style:italic;color:var(--text)}
+  /* секции */
+  section{padding:40px 0 48px}
+  .eyebrow{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text);margin-bottom:12px}
+  h2{font-size:40px;line-height:1.25;font-weight:400;color:var(--ink);letter-spacing:0;max-width:24ch}
+  @media(max-width:767px){h2{font-size:26px}}
+  .lead{margin-top:14px;max-width:60ch}
+  .pillars,.facts{display:grid;gap:16px;margin-top:28px}
+  .pillars{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .facts{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .facts>p{grid-column:1/-1}
+  .pillar,.fact{background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px;transition:box-shadow .3s ease-out}
+  .pillar:hover,.fact:hover{box-shadow:var(--shadow)}
+  .pillar .num{font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--blue)}
+  .pillar h3{font-size:20px;font-weight:500;color:var(--ink);margin:8px 0}
+  .fact b{display:block;color:var(--ink);font-weight:500;margin-bottom:6px}
+  .fact span{font-size:16px}
+  /* цикл */
+  .loop{display:grid;gap:24px;grid-template-columns:1.1fr .9fr;align-items:center;background:var(--soft);
+    border:1px solid var(--line);border-radius:4px;padding:32px;margin-top:24px}
+  @media(max-width:800px){.loop{grid-template-columns:1fr}.ringwrap{display:none}}
+  .steps{list-style:none;display:grid;gap:14px;margin-top:16px}
+  .steps li{display:grid;grid-template-columns:32px 1fr;gap:12px}
+  .steps .n{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;line-height:32px;
+    text-align:center;font-size:14px}
+  .steps b{color:var(--ink);font-weight:500}
+  .ring svg{width:min(300px,80%);height:auto}
+  .ring .dash{stroke-dasharray:5 9;stroke:var(--blue)}
+  /* CTA */
+  .cta{background:var(--soft);border-top:1px solid var(--line);text-align:center;padding:64px 0}
+  .cta h2{margin:0 auto;max-width:26ch}
+  .cta p{margin-top:16px}
+  .btn{display:inline-block;margin-top:28px;padding:14px 20px;min-width:240px;border-radius:4px;background:var(--blue);
+    color:#fff;text-decoration:none;font-size:20px;font-weight:400}
+  .btn:hover{background:#1a7fd6}
+  .foot{padding:28px 0 56px;text-align:center;color:var(--text);font-size:14px;background:#fff;border-top:1px solid var(--line)}
+  .foot a{color:var(--blue);display:inline-block;padding:6px 8px}
+  a{color:var(--blue)}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+  .reveal{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="inner wrap">
+    <div class="badge"><i></i>Сочи · время московское</div>
+    <h1>Запускаю гипотезы за дни.<span>Проверяю числом.</span></h1>
+    <p><b>Senior full-stack: PHP 11 лет (Yii2, Symfony), PostgreSQL, React/Next. Последние полтора года — через ИИ-агентов: Claude Code, Cursor.</b></p>
+    <p>Хочу делать это в Site.pro: реклама, SEO, статьи и гипотезы на продуктовой аналитике. Не письмо — страница: вакансию прочитал.</p>
+    <div class="sign">Эд · Сочи · время московское</div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <section class="note" style="padding:32px 34px;margin-top:-46px">
+    <div class="who"><div class="ava">Э</div><div><b>Привет, я Эд</b><span>делаю продукты с помощью агентов — из Сочи</span></div></div>
+    <p>Полтора года я не пишу код руками. Ставлю задачу, разбираю план, проверяю результат и отвечаю за него. От «придумали» до «знаем, сработало или нет» проходит день-два.</p>
+    <p>Вакансию прочитал. Ниже — что могу по каждой из трёх задач. И где я вам не подойду.</p>
+    <div class="sig">— Эд</div>
+  </section>
+
+  <section>
+    <div>
+      <div class="eyebrow">три задачи</div>
+      <h2>Что я делаю по вашим трём задачам</h2>
+      <p class="lead">Каждую закрываю цифрой: что проверили и что решили.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="num">01</div><h3>Реклама</h3>
+        <p>Вёл коммерческий сайт и внутренние продукты: семантика, объявления, посадочные, события в аналитике. Масштаба в миллионы не было — но цикл «гипотеза → запуск → число → решение» отработан много раз.</p></div>
+      <div class="pillar"><div class="num">02</div><h3>SEO</h3>
+        <p>Schema.org, sitemap, IndexNow, скорость. Статьи пишу с агентом, каждый факт и ссылку проверяю по источнику.</p></div>
+      <div class="pillar"><div class="num">03</div><h3>Авто-гипотезы</h3>
+        <p>Смотрю, где люди отваливаются в продукте. Оттуда — список проверок: что меняем, на какой метрике и на каком объёме данных это видно.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="loop">
+      <div>
+        <div class="eyebrow">цикл</div>
+        <h2>Как проходит проверка</h2>
+        <ul class="steps">
+          <li><span class="n">1</span><div><b>Гипотеза</b><div class="d">Одна строка: что проверяем и какой результат считаем успехом.</div></div></li>
+          <li><span class="n">2</span><div><b>Сборка</b><div class="d">Страница, форма, событие, дашборд — часами, не неделями.</div></div></li>
+          <li><span class="n">3</span><div><b>Замер</b><div class="d">Ставлю до запуска. Иначе на вопрос «сработало?» ответить нечем.</div></div></li>
+          <li><span class="n">4</span><div><b>Решение</b><div class="d">Оставляем, переделываем или закрываем — с числом на руках.</div></div></li>
+        </ul>
+      </div>
+      <div class="ringwrap"><div class="ring">
+        <svg viewBox="0 0 300 300" width="300" height="300" aria-hidden="true" focusable="false">
+          <circle cx="150" cy="150" r="110" fill="none" stroke="#efe9dc" stroke-width="2"/>
+          <circle class="dash" cx="150" cy="150" r="110" fill="none" stroke="#1fa06a" stroke-width="2.5"/>
+          <circle cx="150" cy="54" r="7" fill="#f2a05a"/>
+          <circle cx="246" cy="150" r="7" fill="#1fa06a"/>
+          <circle cx="150" cy="246" r="7" fill="#c25a7a"/>
+          <circle cx="54" cy="150" r="7" fill="#241f45"/>
+        </svg>
+      </div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div>
+      <div class="eyebrow">в проде</div>
+      <h2>Что уже сделал</h2>
+      <p class="lead">Демо и код открыты, ссылки внизу.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>64 инструмента, у каждого свои права</b><span>MCP-сервер в коммерческом продукте: агент видит только разрешённое, запись — с подтверждением.</span></div>
+      <div class="fact"><b>Ответ без источника не отдаётся</b><span>Поиск по документам: модель показывает цитату или говорит «не знаю».</span></div>
+      <div class="fact"><b>Модели сравниваю, а не верю на слово</b><span>Набор кейсов, доверительные интервалы, реестр ложных срабатываний, стенд для сравнения.</span></div>
+      <div class="fact"><b>2 500 наименований — в пары</b><span>Ручную сверку каталога заменил на pg_trgm. Человеку остались только спорные пары.</span></div>
+      <p style="margin-top:22px;color:#5d6273">Демо на FastAPI: <a href="https://d5di947mrfv71qo6acud.fovt0b64.apigw.yandexcloud.net/" style="color:#17845a">открыть</a> · код: <a href="https://github.com/youredik" style="color:#17845a">github.com/youredik</a></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div style="background:#fff;border:1px solid #e8e2d6;border-radius:22px;padding:28px 30px">
+      <div class="eyebrow">честно</div>
+      <h2 style="font-size:26px;font-size:clamp(22px,3vw,30px)">Где я не подойду</h2>
+      <ul style="margin-top:16px;padding-left:20px;color:#4a4e5e">
+        <li style="margin-bottom:8px"><b>Руками почти не пишу.</b> Если нужен человек, который каждый день пишет код сам, без ИИ, — не сработаемся.</li>
+        <li style="margin-bottom:8px"><b>Больших рекламных бюджетов не вёл:</b> один коммерческий сайт и внутренние продукты. Здесь я буду учиться — лучше сказать сразу.</li>
+        <li><b>Фронт — React/Next; Vue в проде не писал.</b> Если он у вас основной, подниму быстро, но это будет вход, а не опыт.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Первая неделя в Site.pro</h2>
+    <p>Три гипотезы по вашим каналам, у каждой — метрика и срок 7 дней. Дальше цикл: сборка, данные, решение.</p>
+    <h2 style="margin-top:34px">Давайте проверим одну гипотезу</h2>
+    <p>15 минут в телеграме. Принесу одну идею под вашу метрику и послушаю, что сейчас не сходится.</p>
+    <a class="btn" href="https://t.me/sochi_privet">Написать Эду в телеграм</a>
+  </div>
+</section>
+</main>
+
+<footer class="foot">Эд · Сочи · время московское · телеграм <a href="https://t.me/sochi_privet">@sochi_privet</a> · код: <a href="https://github.com/youredik">github.com/youredik</a></footer>
+</body>
+</html>
